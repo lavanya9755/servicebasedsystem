@@ -16,7 +16,7 @@ public class ClientController {
     @PostMapping("/register")
     public String registerClient(@ModelAttribute Client client) {
         clientService.registerClient(client);
-        return "redirect:/client/login";
+        return "redirect:/login";
     }
 
 
@@ -24,12 +24,13 @@ public class ClientController {
     public String showLoginPage() {
         return "login"; // Return the login.html page
     }
-    @PostMapping("/login")
-    public String loginClient(@RequestParam String username, @RequestParam String password) {
-        Client client = clientService.loginClient(username, password);
-        if (client != null) {
-            return "redirect:/client/dashboard";
-        }
-        return "redirect:/client/login";
-    }
+//     @GetMapping("/login")
+// public String loginClient(@RequestParam String username, @RequestParam String password) {
+//     Client client = clientService.loginClient(username, password);
+//     if (client != null) {
+//         return "redirect:/client/dashboard";
+//     }
+//     return "redirect:/login";
+// }
+
 }
